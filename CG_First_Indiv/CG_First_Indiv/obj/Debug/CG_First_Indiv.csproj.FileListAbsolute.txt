@@ -7,4 +7,4 @@ D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\C
 D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\CG_First_Indiv\obj\Debug\CG_First_Indiv.csproj.CoreCompileInputs.cache
 D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\CG_First_Indiv\obj\Debug\CG_First_Indiv.exe
 D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\CG_First_Indiv\obj\Debug\CG_First_Indiv.pdb
-D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\CG_First_Indiv\obj\Debug\CG_First_Indiv.Triangle.resources
+D:\Учеба\Универ\4 курс(1 сем)\КГ\Индив\CG_First_Indiv\CG_First_Indiv\obj\Debug\CG_First_Indiv.Form1.resources
