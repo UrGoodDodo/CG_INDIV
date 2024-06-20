@@ -38,7 +38,7 @@ vector<Model> models;
 //позиция дирижабля
 glm::vec3 airshipPos(0.0f, 10.0f, 15.0f);
 glm::vec3 baloon_threshold(-2.0f, 10.0f, 0.0f);
-float updown = 0.005f;
+float updown = 0.1f;
 int numb_clouds = 12;
 vector<glm::vec3> position_of_clouds;
 vector<float> scale_of_clouds;
@@ -134,16 +134,13 @@ void InitPlane()
 		 40.0f, -0.5f, -40.0f,  0.0f, 1.0f, 0.0f,  5.0f, 5.0f
 	};
 
-	//объявляем массив атрибутов и буфер
 
 	glGenVertexArrays(1, &snowVAO);
 	glGenBuffers(1, &snowVBO);
 	glBindVertexArray(snowVAO);
-	// передаем вершины в буфер
 	glBindBuffer(GL_ARRAY_BUFFER, snowVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(snow), snow, GL_STATIC_DRAW);
 
-	// Подключаем массив аттрибутов с указанием на каких местах кто находится
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 
@@ -415,6 +412,33 @@ void Calculate_Clouds()
 	}
 }
 
+void InitModels() 
+{
+	Model airship("ship/Mineways2Skfb.obj");
+	models.push_back(airship);
+
+	Model house("domik/Snow covered CottageOBJ.obj");
+	models.push_back(house);
+
+	Model tree("tree/Model.obj");
+	models.push_back(tree);
+
+	Model sani("sani/Horse Drawn Sleigh 02.obj");
+	models.push_back(sani);
+
+	Model cloud("cloud/cloud.obj");
+	models.push_back(cloud);
+
+	Model airbaloon("baloon/smiley.obj");
+	models.push_back(airbaloon);
+
+	Model snowman("decor/model.obj");
+	models.push_back(snowman);
+
+	Model man("decor/CHARACTER_Gingerbread Man.obj");
+	models.push_back(man);
+}
+
 int main()
 {
 	std::setlocale(LC_ALL, "Russian");
@@ -429,30 +453,7 @@ int main()
 
 	sf::Clock clock;
 		
-	Model airship("ship/Mineways2Skfb.obj");
-	models.push_back(airship);
-
-	Model house("domik/Snow covered CottageOBJ.obj"); 
-	models.push_back(house);
-	
-	Model tree("tree/Model.obj");
-	models.push_back(tree);
-
-	Model sani("sani/Horse Drawn Sleigh 02.obj");
-	models.push_back(sani);
-
-	Model cloud("cloud/cloud.obj");
-	models.push_back(cloud);
-
-	Model airbaloon("baloon/smiley.obj");
-	models.push_back(airbaloon);
-	
-	Model snowman("decor/model.obj");
-	models.push_back(snowman);
-
-	Model kust("decor/CHARACTER_Gingerbread Man.obj");
-	models.push_back(kust);
-
+	InitModels();
 
 	Init();
 	InitPlane();
@@ -463,9 +464,6 @@ int main()
 
 		while (window.pollEvent(event))
 		{
-
-			float camera_speed = 0.5f;
-
 			if (event.type == sf::Event::Closed)
 				window.close();
 			if (event.type == sf::Event::KeyPressed)
